@@ -2,7 +2,7 @@ import produce from 'immer';
 
 export default function cart(state = [], action) {
   switch (action.type) {
-    case 'ADD_TO_CART':
+    case '@cart/ADD':
       return produce(state, (draft) => {
         // checa se o produto é repetido
         const productIndex = draft.findIndex((p) => p.id === action.product.id);
@@ -21,7 +21,7 @@ export default function cart(state = [], action) {
      * }
      * return [...state, { ...action.product, amount: 1 }];
      */
-    case 'REMOVE_FROM_CART':
+    case '@cart/REMOVE':
       return produce(state, (draft) => {
         const productIndex = draft.findIndex((p) => p.id === action.id);
 
